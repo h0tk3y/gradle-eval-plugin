@@ -13,6 +13,6 @@ open class GradleEvalTask : DefaultTask() {
     @TaskAction
     fun eval() {
         val shell = project.groovyShell()
-        println(shell.evalWithDelegate(project, evalCommand))
+        println(shell.evalWithDelegate(project, evalCommand).result)
     }
 }
