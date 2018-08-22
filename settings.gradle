@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        maven {
+            url 'https://teamcity.jetbrains.com/guestAuth/app/rest/builds/buildType:(id:Kotlin_dev_Compiler),number:1.2.70-dev-1527,branch:default:any/artifacts/content/maven/'
+        }
+
+        mavenCentral()
+
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+}
+rootProject.name = 'gradle-eval'
+
