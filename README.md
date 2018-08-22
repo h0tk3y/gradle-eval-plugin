@@ -6,17 +6,22 @@ A tiny plugin for Gradle projects debugging via command line
 ## Usage
 
 This plugin allows inspecting a Gradle build directly from the command line, without editing the build scripts when that is not really necessary.
-for example:
+For example:
 
 ```bash
-./gradlew eval --command='configurations.compileClasspath.files'
+./gradlew eval --command='project.sourceSets.each { println it.name }'
 ```
+
+>     > Task :eval
+>     main
+>     test
+>     SourceSet container
 
 The plugin can be applied normally to a single project as follows:
 
 ```groovy
 plugins {
-    id 'com.github.h0tk3y.gradle.eval' version '0.0.1'
+    id 'com.github.h0tk3y.gradle.eval' version '0.0.2'
 }
 ```
 
@@ -29,7 +34,7 @@ initscript {
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath 'com.github.h0tk3y.gradle.eval:gradle-eval:0.0.1'
+        classpath 'com.github.h0tk3y.gradle.eval:gradle-eval:0.0.2'
     }
 }
 
