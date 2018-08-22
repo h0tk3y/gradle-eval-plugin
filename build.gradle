@@ -14,9 +14,12 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    testCompile 'junit:junit:4.12'
+
     compile 'org.jline:jline:3.9.0'
     compile 'net.java.dev.jna:jna:4.5.2'
+
+    testCompile 'junit:junit:4.12'
+    testCompile gradleTestKit()
 }
 
 gradlePlugin {
@@ -39,4 +42,24 @@ pluginBundle {
             version = project.version
         }
     }
+}
+
+// testing
+
+// Write the plugin's classpath to a file to share with the tests
+task createClasspathManifest {
+    def outputDir = file("$buildDir/$name")
+
+    inputs.files sourceSets.main.runtimeClasspath
+    outputs.dir outputDir
+
+    doLast {
+        outputDir.mkdirs()
+        file("$outputDir/plugin-classpath.txt").text = sourceSets.main.runtimeClasspath.join("\n")
+    }
+}
+
+// Add the classpath file to the test runtime classpath
+dependencies {
+    testRuntime files(createClasspathManifest)
 }
