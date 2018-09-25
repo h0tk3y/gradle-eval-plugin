@@ -25,7 +25,7 @@ plugins {
 }
 ```
 
-However, it may be more practical to apply it with a [Gradle init script](https://docs.gradle.org/current/userguide/init_scripts.html):
+However, it may be more practical to apply it with a system-wide [Gradle init script](https://docs.gradle.org/current/userguide/init_scripts.html) to get these tasks in every project you build:
 
 ```groovy
 initscript {
