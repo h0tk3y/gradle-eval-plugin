@@ -21,7 +21,7 @@ The plugin can be applied normally to a single project as follows:
 
 ```groovy
 plugins {
-    id 'com.github.h0tk3y.gradle.eval' version '0.0.2'
+    id 'com.github.h0tk3y.gradle.eval' version '0.0.3'
 }
 ```
 
@@ -34,7 +34,7 @@ initscript {
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath 'com.github.h0tk3y.gradle.eval:gradle-eval:0.0.2'
+        classpath 'com.github.h0tk3y.gradle.eval:gradle-eval:0.0.3'
     }
 }
 
