@@ -9,7 +9,7 @@ This plugin allows inspecting a Gradle build directly from the command line, wit
 For example:
 
 ```bash
-./gradlew eval --command='project.sourceSets.each { println it.name }'
+./gradlew eval --command='sourceSets.each { println it.name }'
 ```
 
 >     > Task :eval
