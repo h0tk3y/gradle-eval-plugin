@@ -38,7 +38,12 @@ open class GradleReplTask : DefaultTask() {
                 in resetCommands -> binding = Binding()
                 else -> {
                     val (result, newBinding) = try {
-                        shell.evalWithDelegate(project, command, binding)
+                        val scopedScript = """
+                            def closure = { $command }
+                            closure.delegate = project
+                            closure()
+                        """.trimIndent()
+                        shell.evalWithDelegate(project, scopedScript, binding)
                     } catch (e: GroovyRuntimeException) {
                         println(e.message)
                         continue@loop
