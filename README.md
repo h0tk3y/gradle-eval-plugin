@@ -52,4 +52,4 @@ The plugin adds two tasks:
     
 * `projectRepl` for running a REPL in the context of the project
     * Note: Gradle's rich console features disrupt the jline functionality. It is recommended to run `projectRepl` with the 
-      `--console=plain` command line flag to minimize harm from the rich console.
+      `--console=plain --quiet` command line flags to minimize harm from the rich console.
