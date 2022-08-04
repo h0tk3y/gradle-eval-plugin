@@ -30,7 +30,6 @@ However, it may be more practical to apply it with a system-wide [Gradle init sc
 ```groovy
 initscript {
     repositories {
-        jcenter()
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
